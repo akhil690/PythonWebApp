@@ -1,8 +1,6 @@
-from flask import Flask
-app = Flask(__name__)
+from fastapi import FastAPI
+app= FastAPI()
 
-
-@app.route("/")
-def home():
-    return "Hello, this is a sample Python Web App running on Flask Framework!"
-
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
